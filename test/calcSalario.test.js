@@ -28,7 +28,7 @@ describe('CalcSalario', () => {
     /*Caso o cargo seja DBA, o funcionário terá desconto de 25% caso o salário seja
       maior ou igual que 2.000,00, ou apenas 15% caso o salário seja menor que isso.*/
 
-      test('Deve apresentar salario liquido de 2699.99 caso o cargo for Desenvolvedor e o salario base for 2999.99', () => {
+    test('Deve apresentar salario liquido de 2699.99 caso o cargo for DBA e o salario base for 2999.99', () => {
         let funcionario = {
             nome: "Fernando",
             email: "fernando@email.com",
@@ -39,7 +39,7 @@ describe('CalcSalario', () => {
         expect(calcularSalario(funcionario)).toBe(2249.59);
     });
 
-    test('Deve apresentar salario liquido de 2699.99 caso o cargo for Desenvolvedor e o salario base for 2999.99', () => {
+    test('Deve apresentar salario liquido de 2699.99 caso o cargo for DBA e o salario base for 2999.99', () => {
         let funcionario = {
             nome: "Lidia",
             email: "lidia@email.com",
@@ -49,4 +49,27 @@ describe('CalcSalario', () => {
         };
         expect(calcularSalario(funcionario)).toBe(1275.00);
     });
+    /*  Caso o cargo seja TESTADOR, o funcionário terá desconto de 25% caso o salário
+    seja maior ou igual que 2.000,00, ou apenas 15% caso o salário seja menor que
+    isso*/
+
+    test('Deve apresentar salario liquido de 1875.00 caso o cargo for Testador e o salario base for 2500.00', () => {
+        let funcionario = {
+            nome: "Lucas",
+            email: "lucas@email.com",
+            salarioBase: 2500.00,
+            cargo: "Testador"
+        };
+        expect(calcularSalario(funcionario)).toBe(1875.00);
+    });
+    test('Deve apresentar salario liquido de 1530 caso o cargo for Testador e o salario base for 1800.00', () => {
+        let funcionario = {
+            nome: "Zoe",
+            email: "zoe@email.com",
+            salarioBase: 1800.00,
+            cargo: "Testador"
+        };
+        expect(calcularSalario(funcionario)).toBe(1530.00);
+    });
+    
 });
