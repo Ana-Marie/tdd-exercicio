@@ -71,5 +71,26 @@ describe('CalcSalario', () => {
         };
         expect(calcularSalario(funcionario)).toBe(1530.00);
     });
-    
+    /*Caso o cargo seja GERENTE, o funcionário terá desconto de 30% caso o salário
+    seja maior ou igual que 5.000,00, ou apenas 20% caso o salário seja menor que
+    isso*/
+    test('Deve apresentar salario liquido de 2000.00 caso o cargo for Gerente e o salario base for 2500.00', () => {
+        let funcionario = {
+            nome: "Beatrice",
+            email: "bia@email.com",
+            salarioBase: 2500.00,
+            cargo: "Gerente"
+        };
+        expect(calcularSalario(funcionario)).toBe(2000.00);
+    });
+    test('Deve apresentar salario liquido de 5740.00 caso o cargo for Gerente e o salario base for 8200.00', () => {
+        let funcionario = {
+            nome: "Cibelly",
+            email: "belly@email.com",
+            salarioBase: 8200.00,
+            cargo: "Gerente"
+        };
+        expect(calcularSalario(funcionario)).toBe(5740.00);
+    });
+
 });
